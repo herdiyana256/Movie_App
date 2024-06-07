@@ -1,22 +1,22 @@
-import React from 'react'
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-import { Feather } from '@expo/vector-icons'
-import Home from '../screens/Home'
-import Search from '../screens/Search'
-import Favorite from '../screens/Favorite'
+import React from 'react';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { Feather } from '@expo/vector-icons';
+import HomeStackNavigation from './HomeStackNavigation'; // Perbaikan: Import HomeStackNavigation
+import Search from '../screens/Search';
+import Favorite from '../screens/Favorite';
 
-const Tab = createBottomTabNavigator()
+const Tab = createBottomTabNavigator();
 
 const BottomTabNavigator = (): JSX.Element => (
   <Tab.Navigator>
     <Tab.Screen
-      name="Home"
-      component={Home}
+      name="HomeStack"
+      component={HomeStackNavigation} // Perbaikan: Gunakan HomeStackNavigation
       options={{
         tabBarIcon: ({ color }) => (
           <Feather name="home" size={28} color={color} />
         ),
-        headerShown: false,
+        headerShown: false, // Menyembunyikan header bawaan tab
       }}
     />
     <Tab.Screen
@@ -26,7 +26,7 @@ const BottomTabNavigator = (): JSX.Element => (
         tabBarIcon: ({ color }) => (
           <Feather name="search" size={28} color={color} />
         ),
-        headerShown: false,
+        headerShown: false, // Menyembunyikan header bawaan tab
       }}
     />
     <Tab.Screen
@@ -36,10 +36,10 @@ const BottomTabNavigator = (): JSX.Element => (
         tabBarIcon: ({ color }) => (
           <Feather name="heart" size={28} color={color} />
         ),
-        headerShown: false,
+        headerShown: false, // Menyembunyikan header bawaan tab
       }}
     />
   </Tab.Navigator>
-)
+);
 
-export default BottomTabNavigator
+export default BottomTabNavigator;
